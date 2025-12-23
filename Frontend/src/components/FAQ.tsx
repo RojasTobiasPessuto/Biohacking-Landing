@@ -9,10 +9,10 @@ export default function FAQ() {
     const element = document.getElementById(id);
     if (element) {
       const offset = -550;
-      const elementPosition =
-        element.getBoundingClientRect().top;
+      const elementPosition = element.getBoundingClientRect().top;
       const offsetPosition =
         elementPosition + window.pageYOffset - offset;
+
       window.scrollTo({
         top: offsetPosition,
         behavior: "smooth",
@@ -22,8 +22,7 @@ export default function FAQ() {
 
   const faqs = [
     {
-      question:
-        "¿Necesito conocimientos previos en biohacking o salud?",
+      question: "¿Necesito conocimientos previos en biohacking o salud?",
       answer:
         "No. El evento está diseñado para personas de todos los niveles. Tanto si nunca escuchaste hablar de biohacking como si ya implementás protocolos avanzados, vas a encontrar contenido valioso, práctico y adaptado a tu contexto.",
     },
@@ -43,8 +42,7 @@ export default function FAQ() {
         "Ambos. Tendrás conferencias con base científica sólida, pero también experiencias prácticas, demostraciones en vivo, acceso a tecnología de medición, y sesiones interactivas diseñadas para que tu cuerpo integre lo que tu mente aprende.",
     },
     {
-      question:
-        "¿Qué diferencia hay entre los tipos de entradas?",
+      question: "¿Qué diferencia hay entre los tipos de entradas?",
       answer:
         "Standard te da acceso completo a conferencias y contenido principal. VIP añade ubicación preferencial, meet & greet con speakers, y acceso a experiencias premium. Gold incluye todo lo anterior más test epigenético, sesión 1:1 con un experto, y un plan personalizado post-evento.",
     },
@@ -54,8 +52,7 @@ export default function FAQ() {
         "En el Complejo Solanas, Punta del Este, Uruguay. Un espacio moderno, luminoso, con acceso a naturaleza y todas las instalaciones necesarias para una experiencia transformadora.",
     },
     {
-      question:
-        "¿Puedo solicitar reembolso si no puedo asistir?",
+      question: "¿Puedo solicitar reembolso si no puedo asistir?",
       answer:
         "Sí. Aceptamos reembolsos hasta 30 días antes del evento. Pasado ese plazo, podrás transferir tu entrada a otra persona. Contactanos a info@biohackingsummit.com para gestionar cambios.",
     },
@@ -77,20 +74,38 @@ export default function FAQ() {
             transition={{ duration: 0.6 }}
             className="lg:sticky lg:top-24"
           >
-            <h2 className="mb-6">
-              ¿Tienes dudas sobre el Summit?
-            </h2>
+            <h2 className="mb-6">¿Tienes dudas sobre el Summit?</h2>
             <p className="text-gray-700 mb-8 leading-relaxed">
-              Aquí respondemos las preguntas más comunes para
-              que puedas decidir con claridad si este encuentro
-              es para ti.
+              Aquí respondemos las preguntas más comunes para que puedas decidir
+              con claridad si este encuentro es para ti.
             </p>
-            <button
+
+            {/* BOTÓN CON PALPITO */}
+            <motion.button
               onClick={() => scrollToSection("entradas")}
-              className="inline-block bg-[#FF4E2F] text-white px-8 py-4 rounded-full hover:bg-[#FF3204] transition-colors"
+              className="inline-block bg-[#FF4E2F] text-white px-8 py-4 rounded-full"
+              animate={{
+                scale: [1, 1.06, 1],
+                boxShadow: [
+                  "0px 0px 0px rgba(0,0,0,0)",
+                  "0px 14px 36px rgba(0,0,0,0.22)",
+                  "0px 0px 0px rgba(0,0,0,0)",
+                ],
+              }}
+              transition={{
+                duration: 1.9,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+              whileHover={{
+                scale: 1.1,
+                boxShadow: "0px 18px 44px rgba(0,0,0,0.28)",
+                backgroundColor: "#FF3204",
+              }}
+              whileTap={{ scale: 0.98 }}
             >
               Comprar entrada aquí
-            </button>
+            </motion.button>
           </motion.div>
 
           {/* Right side - FAQ Accordion */}
@@ -101,10 +116,7 @@ export default function FAQ() {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{
-                  duration: 0.6,
-                  delay: index * 0.05,
-                }}
+                transition={{ duration: 0.6, delay: index * 0.05 }}
                 className="border border-gray-200 rounded-2xl overflow-hidden"
               >
                 <button

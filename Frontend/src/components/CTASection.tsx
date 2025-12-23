@@ -6,10 +6,10 @@ export default function CTASection() {
     const element = document.getElementById(id);
     if (element) {
       const offset = -550;
-      const elementPosition =
-        element.getBoundingClientRect().top;
+      const elementPosition = element.getBoundingClientRect().top;
       const offsetPosition =
         elementPosition + window.pageYOffset - offset;
+
       window.scrollTo({
         top: offsetPosition,
         behavior: "smooth",
@@ -26,12 +26,29 @@ export default function CTASection() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <button
+          <motion.button
             onClick={() => scrollToSection("entradas")}
-            className="px-12 py-5 bg-black text-white rounded-full hover:bg-gray-800 transition-all duration-300 hover:shadow-xl hover:scale-105"
+            className="px-12 py-5 bg-black text-white rounded-full text-lg font-medium"
+            animate={{
+              scale: [1, 1.06, 1],
+              boxShadow: [
+                "0px 0px 0px rgba(0,0,0,0)",
+                "0px 12px 32px rgba(0,0,0,0.25)",
+                "0px 0px 0px rgba(0,0,0,0)",
+              ],
+            }}
+            transition={{
+              duration: 1.8,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+            whileHover={{
+              scale: 1.1,
+              boxShadow: "0px 16px 40px rgba(0,0,0,0.35)",
+            }}
           >
             Asegurá tu lugar
-          </button>
+          </motion.button>
         </motion.div>
       </div>
     </section>
