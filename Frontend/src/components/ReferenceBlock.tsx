@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'motion/react';
-import eventImage from 'figma:asset/cb65c93425711f0db0a702277dadd78afff98abd.png';
+import eventImage from '../assets/biohacking.png';
 
 export default function ReferenceBlock() {
   // Countdown Timer - Fecha del evento: 26 de diciembre de 2025

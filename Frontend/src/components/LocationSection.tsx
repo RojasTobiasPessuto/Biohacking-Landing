@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { MapPin, Calendar, Clock } from 'lucide-react';
-
+import solanasImg from "../assets/solanas.png";
 export default function LocationSection() {
   return (
     <section className="py-24 bg-white" id="ubicacion">
@@ -27,7 +27,7 @@ export default function LocationSection() {
           >
             <div className="relative h-full rounded-2xl overflow-hidden shadow-lg">
               <img
-                src="https://1jasce7jeuzj98bv.public.blob.vercel-storage.com/caption.jpg"
+                src="/solanas.png"
                 alt="Complejo Solanas - Punta del Este"
                 className="w-full h-full object-cover min-h-[600px]"
               />
