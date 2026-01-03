@@ -2,99 +2,101 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { X } from 'lucide-react';
 
+import aimieImg from '../assets/Personas/aimieapigian.png';
+import alexandraImg from '../assets/Personas/alexandracochrane.png';
+import arpitImg from '../assets/Personas/arpitbansal.png';
+import ashleyImg from '../assets/Personas/ashleymadsen.png';
+import claudiaImg from '../assets/Personas/claudiavonboeselger.png';
+import giseleImg from '../assets/Personas/giselewerneck.png';
+import gracielaImg from '../assets/Personas/gracielavarela.png';
+import heloisaImg from '../assets/Personas/heloisaalves.png';
+import luisaImg from '../assets/Personas/luisacomerlato.png';
+import martinImg from '../assets/Personas/martinlombardero.png';
+import melinaImg from '../assets/Personas/melinavicario.png';
+import nathalyImg from '../assets/Personas/nathalymarcus.png';
+import ricardoImg from '../assets/Personas/ricardozimerman.png';
+
 export default function Speakers() {
   const [selectedSpeaker, setSelectedSpeaker] = useState<number | null>(null);
 
   const mainSpeakers = [
     { 
-      name: 'Coral Mujaes', 
-      role: 'Experta en Nutrición y Longevidad', 
-      description: 'Mentora de alto rendimiento empresaria, escritora y atleta de fisicoculturismo que ha transformado su vida.',
-      image: 'https://images.unsplash.com/photo-1573497491306-c8a68afac6f2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxidXNpbmVzcyUyMHByb2Zlc3Npb25hbCUyMHdvbWFufGVufDF8fHx8MTc2NjE1MTYxNnww&ixlib=rb-4.1.0&q=80&w=1080' 
-    },
-    { 
-      name: 'Dr. Ricardo Zimerman', 
-      role: 'Medicina Integrativa', 
-      description: 'Médico infectólogo y científico con sede en Brasil y Argentina. Autonomía médica y la medicina basada en evidencia.',
-      image: 'https://images.unsplash.com/photo-1758691461516-7e716e0ca135?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxkb2N0b3IlMjBtZWRpY2FsJTIwcHJvZmVzc2lvbmFsfGVufDF8fHx8MTc2NjA1MDM5Mnww&ixlib=rb-4.1.0&q=80&w=1080' 
-    },
-    { 
       name: 'Nathaly Marcus', 
       role: 'Biohacking y Optimización', 
       description: 'Nutricion funcional, biohacker y oradora internacional especializada en epigenética, longevidad saludable, bienestar holístico y salud de la mujer.',
-      image: 'https://images.unsplash.com/photo-1733231291514-06895ab0f5e1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBwb3J0cmFpdCUyMHNwZWFrZXJ8ZW58MXx8fHwxNzY2MTUxNjE2fDA&ixlib=rb-4.1.0&q=80&w=1080' 
+      image: nathalyImg 
+    },
+    { 
+      name: 'Ricardo Zimerman', 
+      role: 'Medicina Integrativa', 
+      description: 'Médico infectólogo y científico con sede en Brasil y Argentina. Autonomía médica y la medicina basada en evidencia.',
+      image: ricardoImg 
     },
     { 
       name: 'Martin Lombardero', 
       role: 'Performance y Neurociencia', 
       description: 'Especialista en imagenología cardíaca no invasiva. Su enfoque integra la medicina tradicional con una perspectiva innovadora.',
-      image: 'https://images.unsplash.com/photo-1758599543126-59e3154d7195?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxleGVjdXRpdmUlMjBwcm9mZXNzaW9uYWwlMjBwb3J0cmFpdHxlbnwxfHx8fDE3NjYxNTE2MTd8MA&ixlib=rb-4.1.0&q=80&w=1080' 
+      image: martinImg 
     },
     { 
       name: 'Melina Vicario', 
       role: 'Wellness y Movimiento', 
       description: 'Especialista en la optimización del rendimiento, el bienestar y el potencial humano a través de la ciencia, la tecnología y el autoconocimiento.',
-      image: 'https://images.unsplash.com/photo-1573497491306-c8a68afac6f2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxidXNpbmVzcyUyMHByb2Zlc3Npb25hbCUyMHdvbWFufGVufDF8fHx8MTc2NjE1MTYxNnww&ixlib=rb-4.1.0&q=80&w=1080' 
+      image: melinaImg 
     },
     { 
-      name: 'Heloísa F. Alves', 
+      name: 'Heloísa Alves', 
       role: 'Medicina Funcional', 
       description: 'Doctorado en Ciencias Odontológicas. Explora la conexión entre la medicina de la oclusión y la función cerebral.',
-      image: 'https://images.unsplash.com/photo-1733231291514-06895ab0f5e1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBwb3J0cmFpdCUyMHNwZWFrZXJ8ZW58MXx8fHwxNzY2MTUxNjE2fDA&ixlib=rb-4.1.0&q=80&w=1080' 
+      image: heloisaImg 
     },
     { 
-      name: 'Dr. Aimie K. Apigian', 
+      name: 'Aimie Apigian', 
       role: 'Neurobiología del Estrés', 
       description: 'Médica, educadora y experta en la curación del trauma fisiológico.',
-      image: 'https://images.unsplash.com/photo-1758691461516-7e716e0ca135?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxkb2N0b3IlMjBtZWRpY2FsJTIwcHJvZmVzc2lvbmFsfGVufDF8fHx8MTc2NjA1MDM5Mnww&ixlib=rb-4.1.0&q=80&w=1080' 
+      image: aimieImg 
     },
     { 
       name: 'Gisele Werneck', 
       role: 'Salud Hormonal', 
       description: 'Médica especializada en neurología. Promueve un enfoque de "medicina humanizada y cuidado integral".',
-      image: 'https://images.unsplash.com/photo-1573497491306-c8a68afac6f2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxidXNpbmVzcyUyMHByb2Zlc3Npb25hbCUyMHdvbWFufGVufDF8fHx8MTc2NjE1MTYxNnww&ixlib=rb-4.1.0&q=80&w=1080' 
-    },
-    { 
-      name: 'Anaïs Garcia', 
-      role: 'Nutrición Celular', 
-      description: 'Médica, oradora y experta en salud holística, conocida por integrar la medicina con la energía y la intuición. Sanadora energética y promotora de la longevidad.',
-      image: 'https://images.unsplash.com/photo-1733231291514-06895ab0f5e1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBwb3J0cmFpdCUyMHNwZWFrZXJ8ZW58MXx8fHwxNzY2MTUxNjE2fDA&ixlib=rb-4.1.0&q=80&w=1080' 
-    },
-    { 
-      name: 'Ashley Madsen', 
-      role: 'Medicina del Deporte', 
-      description: 'Médica certificada, oradora y educadora global con experiencia en medicina funcional y ciencia de la longevidad. Es cofundadora de Lumara Collective.',
-      image: 'https://images.unsplash.com/photo-1758599543126-59e3154d7195?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxleGVjdXRpdmUlMjBwcm9mZXNzaW9uYWwlMjBwb3J0cmFpdHxlbnwxfHx8fDE3NjYxNTE2MTd8MA&ixlib=rb-4.1.0&q=80&w=1080' 
-    },
-    { 
-      name: 'Claudia Von Boeselger', 
-      role: 'Longevidad y Epigenética', 
-      description: 'Entrenadora de rendimiento máximo (peak performance coach), empresaria en serie y experta en longevidad y biohacking. Co fundadora, Lumara Collective.',
-      image: 'https://images.unsplash.com/photo-1573497491306-c8a68afac6f2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxidXNpbmVzcyUyMHByb2Zlc3Npb25hbCUyMHdvbWFufGVufDF8fHx8MTc2NjE1MTYxNnww&ixlib=rb-4.1.0&q=80&w=1080' 
-    },
-    { 
-      name: 'Alexandra Cochrane', 
-      role: 'Microbioma y Salud Digestiva', 
-      description: 'Cofundadora de Lumara Collective, una organización enfocada en la salud regenerativa, la estrategia de biohacking y la innovación en bienestar.',
-      image: 'https://images.unsplash.com/photo-1733231291514-06895ab0f5e1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBwb3J0cmFpdCUyMHNwZWFrZXJ8ZW58MXx8fHwxNjYxNTE2MTZ8MA&ixlib=rb-4.1.0&q=80&w=1080' 
+      image: giseleImg 
     },
     { 
       name: 'Luisa Comerlato', 
       role: 'Psicología de la Salud', 
       description: 'Médica y arquitecta brasileña, especializada en Medicina del Estilo de Vida. Es conocida por su trabajo en la integración del bienestar y el equilibrio en la vida.',
-      image: 'https://images.unsplash.com/photo-1758691461516-7e716e0ca135?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxkb2N0b3IlMjBtZWRpY2FsJTIwcHJvZmVzc2lvbmFsfGVufDF8fHx8MTc2NjA1MDM5Mnww&ixlib=rb-4.1.0&q=80&w=1080' 
+      image: luisaImg 
     },
     { 
       name: 'Arpit Bansal', 
       role: 'Biotecnología e Innovación', 
       description: 'Cirujano laparoscópico avanzado. Especialista en intestino y longevidad.',
-      image: 'https://images.unsplash.com/photo-1758599543126-59e3154d7195?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxleGVjdXRpdmUlMjBwcm9mZXNzaW9uYWwlMjBwb3J0cmFpdHxlbnwxfHx8fDE3NjYxNTE2MTd8MA&ixlib=rb-4.1.0&q=80&w=1080' 
+      image: arpitImg 
     },
     { 
       name: 'Graciela Varela', 
       role: 'Nutrición Clínica', 
       description: 'Especialista en Medicina Integral y Funcional Pionera en medicina de precisión.',
-      image: 'https://images.unsplash.com/photo-1573497491306-c8a68afac6f2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxidXNpbmVzcyUyMHByb2Zlc3Npb25hbCUyMHdvbWFufGVufDF8fHx8MTc2NjE1MTYxNnww&ixlib=rb-4.1.0&q=80&w=1080' 
+      image: gracielaImg 
+    },
+    { 
+      name: 'Ashley Madsen', 
+      role: 'Medicina del Deporte', 
+      description: 'Médica certificada, oradora y educadora global con experiencia en medicina funcional y ciencia de la longevidad. Es cofundadora de Lumara Collective.',
+      image: ashleyImg
+    },
+    { 
+      name: 'Claudia Von Boeselger', 
+      role: 'Longevidad y Epigenética', 
+      description: 'Entrenadora de rendimiento máximo (peak performance coach), empresaria en serie y experta en longevidad y biohacking. Co fundadora, Lumara Collective.',
+      image: claudiaImg
+    },
+    { 
+      name: 'Alexandra Cochrane', 
+      role: 'Microbioma y Salud Digestiva', 
+      description: 'Cofundadora de Lumara Collective, una organización enfocada en la salud regenerativa, la estrategia de biohacking y la innovación en bienestar.',
+      image: alexandraImg
     },
   ];
 
@@ -102,7 +104,7 @@ export default function Speakers() {
   const experienceLeaders = ['Nicolás Ogues', 'Irina Sbaglia', 'Jorge Patrono', 'María Keto', 'Paula Soriano', 'Lis Sikorki'];
 
   return (
-    <section className="py-24" id="speakers">
+    <section className="py-32 relative" id="speakers">
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
         {/* Header */}
         <motion.div
@@ -110,28 +112,95 @@ export default function Speakers() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-20"
         >
-          <h2 className="section-title mb-4">Expertos de talla mundial</h2>
-          <p className="text-gray-600">Conocé a los speakers</p>
+          <h2 className="section-title mb-4">EXPERTOS DE TALLA MUNDIAL</h2>
+          <p className="text-gray-600">
+            Aprende de los mejores expertos en optimización humana, medicina funcional y ciencias de la longevidad
+          </p>
         </motion.div>
 
         {/* Speaker Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 mb-20">
-          {mainSpeakers.map((speaker, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: index * 0.05 }}
-              className="group cursor-pointer p-6 rounded-2xl hover:bg-gray-50 transition-colors"
-              onClick={() => setSelectedSpeaker(index)}
-            >
-              <h5 className="mb-2">{speaker.name}</h5>
-              <p className="text-sm text-gray-500">{speaker.role}</p>
-            </motion.div>
-          ))}
+        <div className="mb-24 max-w-6xl mx-auto">
+          {/* First 10 speakers - 2 full rows */}
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5 mb-5">
+            {mainSpeakers.slice(0, 10).map((speaker, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: index * 0.08 }}
+                className="group cursor-pointer"
+                onClick={() => setSelectedSpeaker(index)}
+              >
+                <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-4 hover:bg-white transition-all duration-300 hover:shadow-xl hover:scale-[1.03] h-full">
+                  {/* Image */}
+                  <div className="relative aspect-square rounded-xl overflow-hidden mb-3">
+                    <img 
+                      src={speaker.image} 
+                      alt={speaker.name}
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-300" />
+                    
+                    {/* Overlay Badge */}
+                    <div className="absolute bottom-2 left-2 right-2">
+                      <div className="bg-white/95 backdrop-blur-sm rounded-lg px-2 py-1 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+                        <p className="text-[10px] text-[#FF4E2F] uppercase tracking-wider">Ver más</p>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  {/* Info */}
+                  <div className="text-center">
+                    <p className="text-sm mb-1 text-gray-900 font-semibold">{speaker.name}</p>
+                    <p className="text-xs text-gray-600 leading-relaxed">{speaker.role}</p>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+          
+          {/* Last 3 speakers - centered */}
+          <div className="flex justify-center gap-5 flex-wrap">
+            {mainSpeakers.slice(10).map((speaker, index) => (
+              <motion.div
+                key={index + 10}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: (index + 10) * 0.08 }}
+                className="group cursor-pointer w-full sm:w-[calc(50%-10px)] md:w-[calc(33.333%-14px)] lg:w-[calc(20%-16px)] max-w-[220px]"
+                onClick={() => setSelectedSpeaker(index + 10)}
+              >
+                <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-4 hover:bg-white transition-all duration-300 hover:shadow-xl hover:scale-[1.03] h-full">
+                  {/* Image */}
+                  <div className="relative aspect-square rounded-xl overflow-hidden mb-3">
+                    <img 
+                      src={speaker.image} 
+                      alt={speaker.name}
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-300" />
+                    
+                    {/* Overlay Badge */}
+                    <div className="absolute bottom-2 left-2 right-2">
+                      <div className="bg-white/95 backdrop-blur-sm rounded-lg px-2 py-1 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+                        <p className="text-[10px] text-[#FF4E2F] uppercase tracking-wider">Ver más</p>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  {/* Info */}
+                  <div className="text-center">
+                    <p className="text-sm mb-1 text-gray-900 font-semibold">{speaker.name}</p>
+                    <p className="text-xs text-gray-600 leading-relaxed">{speaker.role}</p>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
         </div>
 
         {/* Speaker Modal */}
@@ -193,7 +262,7 @@ export default function Speakers() {
           transition={{ duration: 0.6 }}
           className="mb-20"
         >
-          <h4 className="text-center mb-10 tracking-[0.2em] text-sm text-gray-1200">EVENTO CONDUCIDO POR</h4>
+          <h2 className="text-center mb-10 tracking-[0.2em] text-sm text-gray-1200">EVENTO CONDUCIDO POR</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-gray-200 max-w-4xl mx-auto overflow-hidden rounded-2xl">
             {hosts.map((host, index) => (
               <motion.div
