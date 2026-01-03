@@ -4,7 +4,7 @@ import { Check, Sparkles } from "lucide-react";
 import eventImage from '../assets/unnamed.png';
 
 const CHECKOUT_URL =
-  "https://linktr.ee/rewirexperience?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQMMjU2MjgxMDQwNTU4AAGnpYDi6K3tO85iDIHf5Vm7CZ9GTR7TAe4v7C65OsRSjhjfsDlCl1_FwmTSCVw_aem__wt09EbPZ1MPVsBe0F2W2g";
+  "https://www.suticket.com/evento/311/biohacking-and-optimization-summit-2026";
 
 export default function Pricing() {
   const tickets = [
