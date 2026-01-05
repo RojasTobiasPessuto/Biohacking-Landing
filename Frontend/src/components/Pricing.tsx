@@ -23,7 +23,7 @@ export default function Pricing() {
     },
     {
       name: "VIP",
-      price: "USD 790",
+      price: "USD 590",
       features: [
         "Todo lo incluido en Standard",
         "Ubicación preferencial en conferencias",
@@ -37,7 +37,7 @@ export default function Pricing() {
     },
     {
       name: "Gold",
-      price: "USD 690",
+      price: "USD 790",
       features: [
         "Experiencia completa GOLD",
         "Máximo nivel de integración",
@@ -53,7 +53,7 @@ export default function Pricing() {
     },
     {
       name: "Streaming",
-      price: "USD ***",
+      price: "USD 60",
       features: [],
       link: CHECKOUT_URL,
       highlighted: false,
