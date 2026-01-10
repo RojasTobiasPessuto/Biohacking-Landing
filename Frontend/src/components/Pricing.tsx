@@ -178,7 +178,7 @@ export default function Pricing() {
                 <div className="mb-8">
                   <div className="text-white/80 text-sm mb-2">Experiencia Premium</div>
                   <div className="flex items-baseline gap-2">
-                    <span className="text-white text-5xl">USD 490</span>
+                    <span className="text-white text-5xl">USD 590</span>
                   </div>
                 </div>
 
