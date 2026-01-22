@@ -1,16 +1,19 @@
 import React from "react";
 import { motion } from "motion/react";
-import { Check, Sparkles } from "lucide-react";
+import { Check, Sparkles, Ticket} from "lucide-react";
 import eventImage from '../assets/unnamed.png';
+import { useTicketCounter } from "./useTicketCounter";
 
 const CHECKOUT_URL =
   "https://www.suticket.com/evento/311/biohacking-and-optimization-summit-2026";
 
 export default function Pricing() {
+  const { getTicketsRemaining } = useTicketCounter();
   const tickets = [
     {
       name: "Standard",
       price: "USD 390",
+      initialStock: 500,
       features: [
         "Ingreso general al evento",
         "Acceso a todas las conferencias",
@@ -24,6 +27,7 @@ export default function Pricing() {
     {
       name: "VIP",
       price: "USD 590",
+      initialStock: 300,
       features: [
         "Todo lo incluido en Standard",
         "Ubicación preferencial en conferencias",
@@ -38,6 +42,7 @@ export default function Pricing() {
     {
       name: "Gold",
       price: "USD 790",
+      initialStock: 200,
       features: [
         "Experiencia completa GOLD",
         "Máximo nivel de integración",
@@ -54,11 +59,75 @@ export default function Pricing() {
     {
       name: "Streaming",
       price: "USD 60",
+      initialStock: 0,
       features: [],
       link: CHECKOUT_URL,
       highlighted: false,
     },
   ];
+  // Función para obtener los estilos según el porcentaje de entradas disponibles
+  const getUrgencyStyles = (ticketName: string, initialStock: number) => {
+    const remaining = getTicketsRemaining(ticketName);
+    const percentage = (remaining / initialStock) * 100;
+
+    if (percentage > 50) {
+      // Verde/Normal - Muchas entradas disponibles
+      return {
+        bgColor: "bg-green-50",
+        borderColor: "border-gray-900",
+        iconColor: "text-green-600",
+        textColor: "text-green-600",
+        label: "Disponibles",
+      };
+    } else if (percentage > 20) {
+      // Amarillo/Advertencia - Pocas entradas
+      return {
+        bgColor: "bg-yellow-50",
+        borderColor: "border-yellow-300",
+        iconColor: "text-yellow-600",
+        textColor: "text-yellow-600",
+        label: "¡Últimas entradas!",
+      };
+    } else {
+      // Rojo/Urgencia - Muy pocas entradas
+      return {
+        bgColor: "bg-red-50",
+        borderColor: "border-red-300",
+        iconColor: "text-red-600",
+        textColor: "text-red-600",
+        label: "⚡ ¡ÚLTIMAS PLAZAS!",
+      };
+    }
+  };
+
+  // Función para VIP (fondo oscuro) con estilos adaptados
+  const getUrgencyStylesVIP = (ticketName: string, initialStock: number) => {
+    const remaining = getTicketsRemaining(ticketName);
+    const percentage = (remaining / initialStock) * 100;
+
+    if (percentage > 50) {
+      return {
+        bgColor: "bg-white/10",
+        borderColor: "border-white/20",
+        accentColor: "text-green-400",
+        label: "Disponibles",
+      };
+    } else if (percentage > 20) {
+      return {
+        bgColor: "bg-yellow-500/10",
+        borderColor: "border-yellow-500/30",
+        accentColor: "text-yellow-400",
+        label: "¡Últimas entradas!",
+      };
+    } else {
+      return {
+        bgColor: "bg-red-500/10",
+        borderColor: "border-red-500/30",
+        accentColor: "text-red-400",
+        label: "⚡ ¡ÚLTIMAS PLAZAS!",
+      };
+    }
+  };
 
   return (
     <section className="py-24" id="entradas">
@@ -175,6 +244,29 @@ export default function Pricing() {
                   </div>
                 </div>
 
+                {/* Ticket Counter for VIP */}
+                <motion.div
+                  className={`mb-6 backdrop-blur-sm rounded-xl p-3 border ${getUrgencyStylesVIP("VIP", tickets[1].initialStock).bgColor} ${getUrgencyStylesVIP("VIP", tickets[1].initialStock).borderColor}`}
+                  animate={{ scale: [1, 1.02, 1] }}
+                  transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+                >
+                  <div className="flex flex-col gap-1">
+                    <span className={`text-xs font-semibold ${getUrgencyStylesVIP("VIP", tickets[1].initialStock).accentColor} uppercase tracking-wider`}>
+                      {getUrgencyStylesVIP("VIP", tickets[1].initialStock).label}
+                    </span>
+                    <div className="flex items-center gap-2 text-white">
+                      <Ticket size={18} className={getUrgencyStylesVIP("VIP", tickets[1].initialStock).accentColor} />
+                      <span className="text-sm font-medium">
+                        Solo quedan{" "}
+                        <span className={`${getUrgencyStylesVIP("VIP", tickets[1].initialStock).accentColor} font-bold text-lg`}>
+                          {getTicketsRemaining("VIP")}
+                        </span>{" "}
+                        entradas
+                      </span>
+                    </div>
+                  </div>
+                </motion.div>
+
                 <div className="mb-8">
                   <div className="text-white/80 text-sm mb-2">Experiencia Premium</div>
                   <div className="flex items-baseline gap-2">
@@ -223,6 +315,25 @@ export default function Pricing() {
                 </div>
               </div>
 
+              {/* Ticket Counter for Standard */}
+              <motion.div
+                className={`mb-6 rounded-lg p-3 border ${getUrgencyStyles("Standard", tickets[0].initialStock).bgColor} ${getUrgencyStyles("Standard", tickets[0].initialStock).borderColor}`}
+                animate={{ scale: [1, 1.02, 1] }}
+                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+              >
+                <div className="flex flex-col gap-1">
+                  <span className={`text-xs font-semibold ${getUrgencyStyles("Standard", tickets[0].initialStock).textColor} uppercase tracking-wider`}>
+                    {getUrgencyStyles("Standard", tickets[0].initialStock).label}
+                  </span>
+                  <div className="flex items-center gap-2">
+                    <Ticket size={16} className={getUrgencyStyles("Standard", tickets[0].initialStock).iconColor} />
+                    <span className="text-xs font-medium text-gray-700">
+                      <span className={`${getUrgencyStyles("Standard", tickets[0].initialStock).textColor} font-bold`}>{getTicketsRemaining("Standard")}</span> entradas
+                    </span>
+                  </div>
+                </div>
+              </motion.div>
+
               <ul className="space-y-3 mb-8 min-h-[200px]">
                 {tickets[0].features.map((feature, i) => (
                   <li key={i} className="flex items-start gap-3">
@@ -258,6 +369,25 @@ export default function Pricing() {
                   <span className="text-4xl">{tickets[2].price}</span>
                 </div>
               </div>
+
+              {/* Ticket Counter for Gold */}
+              <motion.div
+                className={`mb-6 rounded-lg p-3 border ${getUrgencyStyles("Gold", tickets[2].initialStock).bgColor} ${getUrgencyStyles("Gold", tickets[2].initialStock).borderColor}`}
+                animate={{ scale: [1, 1.02, 1] }}
+                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+              >
+                <div className="flex flex-col gap-1">
+                  <span className={`text-xs font-semibold ${getUrgencyStyles("Gold", tickets[2].initialStock).textColor} uppercase tracking-wider`}>
+                    {getUrgencyStyles("Gold", tickets[2].initialStock).label}
+                  </span>
+                  <div className="flex items-center gap-2">
+                    <Ticket size={16} className={getUrgencyStyles("Gold", tickets[2].initialStock).iconColor} />
+                    <span className="text-xs font-medium text-gray-700">
+                      <span className={`${getUrgencyStyles("Gold", tickets[2].initialStock).textColor} font-bold`}>{getTicketsRemaining("Gold")}</span> entradas
+                    </span>
+                  </div>
+                </div>
+              </motion.div>
 
               <ul className="space-y-3 mb-8 min-h-[200px]">
                 {tickets[2].features.map((feature, i) => (
