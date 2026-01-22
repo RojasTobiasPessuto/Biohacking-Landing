@@ -2,29 +2,14 @@ import React from 'react';
 import { motion } from 'motion/react';
 
 export default function BiohackingVideo() {
+  const scrollToSection = (id: string) => {
+    const el = document.getElementById(id);
+    if (!el) return;
+    el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
+
   return (
     <section className="py-24" id="evento">
-      <div className="max-w-7xl mx-auto px-6 lg:px-12">
-        {/* Text content */}
-        <div className="max-w-4xl mx-auto text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="max-w-4xl mx-auto text-center mb-16"
-          >
-            <h2 className="section-title mb-8">¿Biohacking no es para ti?</h2>
-            <p className=" mb-6 leading-relaxed">
-              Tal vez viste la palabra biohacking y pensaste que no era para ti. Que es solo para atletas de élite, ejecutivos obsesionados con la productividad o personas con acceso a tecnologías caras.
-            </p>
-            <p className=" leading-relaxed">
-              Este espacio está diseñado para ayudarte a recuperar energía, foco y control sobre tu salud a largo plazo. Sin extremos. Sin gurús. Solo herramientas reales.
-            </p>
-          </motion.div>
-        </div>
-      </div>
-
       {/* Video section - Full width */}
       <motion.div
         initial={{ opacity: 0, scale: 0.95 }}

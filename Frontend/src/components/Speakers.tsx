@@ -102,6 +102,21 @@ export default function Speakers() {
 
   const hosts = ['Nara Ferregut', 'Silvina Tochetti'];
   const experienceLeaders = ['Nicolás Ogues', 'Irina Sbaglia', 'Jorge Patrono', 'María Keto', 'Paula Soriano', 'Lis Sikorki'];
+  const scrollToSection = (id: string, offset = 100) => {
+    const el = document.getElementById(id);
+    if (!el) return;
+
+    const y =
+      el.getBoundingClientRect().top +
+      window.pageYOffset -
+      offset;
+
+    window.scrollTo({
+      top: y,
+      behavior: 'smooth',
+    });
+  };
+
 
   return (
     <section className="py-32 relative" id="speakers">
@@ -279,7 +294,6 @@ export default function Speakers() {
             ))}
           </div>
         </motion.div>
-
         {/* Experience Leaders */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -305,6 +319,37 @@ export default function Speakers() {
           </div>
         </motion.div>
       </div>
+      <motion.div
+      className="w-full mt-10 flex justify-center"
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.6 }}
+    >
+      <motion.button
+        onClick={() => scrollToSection("entradas", -700)}
+        className="px-12 py-5 bg-black text-white rounded-full text-lg font-medium"
+        animate={{
+          scale: [1, 1.06, 1],
+          boxShadow: [
+            "0px 0px 0px rgba(0,0,0,0)",
+            "0px 12px 32px rgba(0,0,0,0.25)",
+            "0px 0px 0px rgba(0,0,0,0)",
+          ],
+        }}
+        transition={{
+          duration: 1.8,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+        whileHover={{
+          scale: 1.1,
+          boxShadow: "0px 16px 40px rgba(0,0,0,0.35)",
+        }}
+      >
+        Asegurá tu lugar
+      </motion.button>
+    </motion.div>
     </section>
   );
 }

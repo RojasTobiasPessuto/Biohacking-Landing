@@ -169,7 +169,7 @@ export default function LocationSection() {
                       <div className="text-white text-3xl">Próximamente</div>
                     </div>
                     <motion.a
-                      href="https://linkly.link/2XFcE"
+                      href="https://www.suticket.com/evento/311/biohacking-and-optimization-summit-2026"
                       className="px-8 py-3 bg-white text-black rounded-full hover:bg-[#FF4E2F] hover:text-white transition-all duration-300"
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}

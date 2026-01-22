@@ -36,7 +36,6 @@ export default function Navbar() {
     { label: "Evento", id: "evento" },
     { label: "Entradas", id: "entradas" },
     { label: "Ubicación", id: "ubicacion" },
-    { label: "Sponsors", id: "sponsors" },
     { label: "FAQ", id: "faq" },
   ];
 

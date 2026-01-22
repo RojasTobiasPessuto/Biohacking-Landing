@@ -4,7 +4,7 @@ import { Check, Sparkles } from "lucide-react";
 import eventImage from '../assets/unnamed.png';
 
 const CHECKOUT_URL =
-  "https://linkly.link/2XFcE";
+  "https://www.suticket.com/evento/311/biohacking-and-optimization-summit-2026";
 
 export default function Pricing() {
   const tickets = [

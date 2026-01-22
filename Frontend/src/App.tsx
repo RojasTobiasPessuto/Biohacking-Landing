@@ -11,10 +11,10 @@ import BiohackingVideo from "./components/BiohackingVideo";
 import EventPhotos from "./components/EventPhotos";
 import Pricing from "./components/Pricing";
 import LocationSection from "./components/LocationSection";
-import Sponsors from "./components/Sponsors";
 import FAQ from "./components/FAQ";
 import Footer from "./components/Footer";
-import ExclusiveDinner from './components/ExclusiveDinner';
+import WhatsAppFloat from './components/WhatsAppFloat';
+
 export default function App() {
   useEffect(() => {
     // Load Google Fonts
@@ -57,15 +57,14 @@ export default function App() {
           <VisualReferenceCards />
           <CTASection />
           <Speakers />
-          <ExclusiveDinner />
           <BiohackingVideo />
           <EventPhotos />
           <Pricing />
           <LocationSection />
-          <Sponsors />
           <FAQ />
         </main>
         <Footer />
+        <WhatsAppFloat />
       </div>
     </div>
   );
