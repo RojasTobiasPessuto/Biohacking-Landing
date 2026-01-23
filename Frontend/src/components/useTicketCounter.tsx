@@ -17,12 +17,14 @@ export function useTicketCounter(): UseTicketCounterReturn {
     'Standard': { initialStock: 500, currentStock: 500 },
     'VIP': { initialStock: 300, currentStock: 300 },
     'Gold': { initialStock: 200, currentStock: 200 },
+    'Streaming': { initialStock: 300, currentStock: 300 },
   };
 
   const [ticketsRemaining, setTicketsRemaining] = useState<Record<string, number>>({
     'Standard': 500,
     'VIP': 300,
     'Gold': 200,
+    'Streaming': 300,
   });
 
   useEffect(() => {
@@ -36,6 +38,7 @@ export function useTicketCounter(): UseTicketCounterReturn {
           'Standard': 0,
           'VIP': 0,
           'Gold': 0,
+          'Streaming': 0,
         });
         return;
       }

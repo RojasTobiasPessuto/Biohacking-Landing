@@ -14,6 +14,7 @@ import LocationSection from "./components/LocationSection";
 import FAQ from "./components/FAQ";
 import Footer from "./components/Footer";
 import WhatsAppFloat from './components/WhatsAppFloat';
+import MetaPixel from './components/MetaPixel';
 
 export default function App() {
   useEffect(() => {
@@ -44,6 +45,8 @@ export default function App() {
 
   return (
     <div className="min-h-screen relative isolate">
+      {/* Meta Pixel de Facebook */}
+      <MetaPixel />
       {/* ✅ Gradient Background (no z-negative, no issues behind body) */}
       <div className="fixed inset-0 z-0 bg-gradient-to-br from-[#FF1B8D] via-[#FF6B35] to-[#FFE5D9]" />
 
@@ -58,10 +61,10 @@ export default function App() {
           <CTASection />
           <Speakers />
           <BiohackingVideo />
+          <FAQ />
           <EventPhotos />
           <Pricing />
           <LocationSection />
-          <FAQ />
         </main>
         <Footer />
         <WhatsAppFloat />

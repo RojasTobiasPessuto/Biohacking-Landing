@@ -6,6 +6,8 @@ import { useTicketCounter } from "./useTicketCounter";
 
 const CHECKOUT_URL =
   "https://www.suticket.com/evento/311/biohacking-and-optimization-summit-2026";
+const ROTADOR_URL =
+  "https://linkly.link/2XFcE";
 
 export default function Pricing() {
   const { getTicketsRemaining } = useTicketCounter();
@@ -59,9 +61,11 @@ export default function Pricing() {
     {
       name: "Streaming",
       price: "USD 60",
-      initialStock: 0,
-      features: [],
-      link: CHECKOUT_URL,
+      initialStock: 300,
+      features: [
+        "Incluye acceso al streaming completo del evento (11 hs aprox.)",
+      ],
+      link: ROTADOR_URL,
       highlighted: false,
     },
   ];
@@ -424,18 +428,53 @@ export default function Pricing() {
                   <span className="text-4xl">{tickets[3].price}</span>
                 </div>
               </div>
-
-              <div className="min-h-[200px] flex items-center justify-center">
-                <p className="text-gray-500 text-center text-sm">
-                  Acceso completo al evento desde cualquier parte del mundo
-                </p>
-              </div>
-
+              {/* Ticket Counter for Streaming */}
               <motion.div
-                className="block w-full py-3 rounded-full text-center border-2 border-gray-300 text-gray-400 cursor-not-allowed"
+                className={`mb-6 rounded-lg p-3 border ${getUrgencyStyles("Streaming", tickets[3].initialStock).bgColor} ${getUrgencyStyles("Streaming", tickets[3].initialStock).borderColor}`}
+                animate={{ scale: [1, 1.02, 1] }}
+                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
               >
-                Disponible pronto
+                <div className="flex flex-col gap-1">
+                  <span
+                    className={`text-xs font-semibold ${getUrgencyStyles("Streaming", tickets[3].initialStock).textColor} uppercase tracking-wider`}
+                  >
+                    {getUrgencyStyles("Streaming", tickets[3].initialStock).label}
+                  </span>
+                  <div className="flex items-center gap-2">
+                    <Ticket
+                      size={16}
+                      className={getUrgencyStyles("Streaming", tickets[3].initialStock).iconColor}
+                    />
+                    <span className="text-xs font-medium text-gray-700">
+                      <span
+                        className={`${getUrgencyStyles("Streaming", tickets[3].initialStock).textColor} font-bold`}
+                      >
+                        {getTicketsRemaining("Streaming")}
+                      </span>{" "}
+                      accesos
+                    </span>
+                  </div>
+                </div>
               </motion.div>
+
+              <ul className="space-y-3 mb-8 min-h-[200px]">
+                {tickets[3].features.map((feature, i) => (
+                  <li key={i} className="flex items-start gap-3">
+                    <div className="mt-0.5 flex-shrink-0 w-5 h-5 bg-black rounded-full flex items-center justify-center">
+                      <Check size={14} className="text-white" strokeWidth={3} />
+                    </div>
+                    <span className="text-gray-700 text-sm">{feature}</span>
+                  </li>
+                ))}
+              </ul>
+              <motion.a
+                href={tickets[3].link}
+                className="block w-full py-3 rounded-full text-center border-2 border-black text-black hover:bg-black hover:text-white transition-all duration-300"
+                whileTap={{ scale: 0.95 }}
+              >
+                Comprar Streaming
+              </motion.a>
+
             </motion.div>
           </div>
         </div>
